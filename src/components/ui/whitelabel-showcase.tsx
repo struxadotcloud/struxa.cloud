@@ -219,7 +219,7 @@ export function WhitelabelShowcase() {
   );
 
   const server = SERVERS.find((s) => s.id === selectedId) ?? null;
-  const power: PowerState = (selectedId && powers[selectedId]) ?? "offline";
+  const power: PowerState = (selectedId ? powers[selectedId] : undefined) ?? "offline";
 
   function triggerPower(action: "start" | "stop" | "restart") {
     if (!selectedId) return;

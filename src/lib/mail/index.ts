@@ -4,7 +4,7 @@ import {
   SendEmailCommand,
   type SendEmailCommandOutput,
 } from "@aws-sdk/client-ses";
-import { SyntetiqWelcomeEmail } from "./template/signup";
+import { StruxaWelcomeEmail } from "./template/signup";
 import {
   getEmailTranslations,
   type SupportedLocale,
@@ -133,7 +133,7 @@ export async function generateWelcomeEmailHtml(
   const { translations, steps, links } = getEmailTranslations(locale);
 
   const emailHtml = await render(
-    SyntetiqWelcomeEmail({
+    StruxaWelcomeEmail({
       steps,
       links,
       locale,

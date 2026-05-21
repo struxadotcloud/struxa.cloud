@@ -1,4 +1,4 @@
-import { SyntetiqWelcomeEmail } from "./template/signup";
+import { StruxaWelcomeEmail } from "./template/signup";
 import { getEmailTranslations } from "./email-translations";
 
 // Example usage: Generate localized email for different languages
@@ -6,7 +6,7 @@ import { getEmailTranslations } from "./email-translations";
 export function generateWelcomeEmail(locale: "en" = "en") {
   const { translations, steps, links } = getEmailTranslations(locale);
 
-  return SyntetiqWelcomeEmail({
+  return StruxaWelcomeEmail({
     steps,
     links,
     locale,
