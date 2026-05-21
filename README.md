@@ -1,1 +1,1 @@
-fck
+# struxa.cloud
