@@ -1,0 +1,90 @@
+---
+title: "Introducing Struxa: A Modern Game Server Panel Built to Replace Pterodactyl"
+description: "We built Struxa from scratch with a modern TypeScript stack, a clean operator-focused UI, and a codebase worth contributing to. Here's why, and what's coming next."
+author: "Jakub Krzyżanowski"
+date: "2026-05-21"
+tags: ["announcement", "open-source", "game servers", "pterodactyl"]
+featured: true
+alternates:
+  pl: "monetyzacja-profilu-kursami"
+---
+
+# Introducing Struxa
+
+If you've ever managed game servers at scale, you know Pterodactyl. It's been the go-to open-source game server panel for years — and for good reason. It works. But anyone who has spent time with it also knows its limitations: a PHP backend that's increasingly hard to extend, a frontend that predates modern React patterns, and a codebase that discourages contribution rather than inviting it.
+
+We wanted something better. So we built Struxa.
+
+## What Is Struxa?
+
+Struxa is an open-source, self-hosted game server management panel. It lets you create, manage, and monitor game servers across one or many nodes through a clean web interface. Think of it as Pterodactyl, rewritten from scratch with the tools we actually want to use in 2026.
+
+The stack:
+
+- **Next.js 16 + React 19** — full-stack, type-safe, fast
+- **oRPC** — end-to-end typed API layer with no codegen step
+- **Drizzle ORM + MySQL** — lean schema definitions, safe migrations
+- **Better-Auth** — modern authentication without the boilerplate
+- **Bun** — fast installs, fast runtime
+- **Tailwind CSS** — utility-first, consistent design
+
+Everything is TypeScript. End to end.
+
+## Why Not Just Contribute to Pterodactyl?
+
+We considered it. The Pterodactyl project has a large community and a well-understood protocol (Wings) that handles the actual daemon communication. We didn't want to throw that away.
+
+Struxa is **Wings-compatible**. Any egg that works on Pterodactyl works on Struxa. The daemon communication protocol is the same. What we replaced is everything above that layer: the panel, the API, the data model, the UI.
+
+The reason we didn't contribute upstream is architectural. The changes we wanted to make — a fully typed API layer, a React-first frontend built with modern conventions, a clean relational schema — would require a rewrite anyway. A fork of a PHP backend into TypeScript is not a fork, it's a new project.
+
+## What You Can Do With Struxa Today
+
+Struxa is in active development. Here's what's already working:
+
+**Server management** — Create, start, stop, restart, and delete game servers. Full lifecycle control from the panel. Power state tracked in real time.
+
+**Node management** — Add nodes, configure allocation pools (IP + port ranges), and monitor resource usage. Nodes communicate via the Wings daemon.
+
+**File manager** — Browse and edit server files directly in the browser. No SSH needed for routine config changes.
+
+**Real-time monitoring** — Live CPU, RAM, disk, and network usage per server, with sparkline history graphs. 30-second polling with WebSocket console streaming.
+
+**Multi-user access** — Role-based access control. Admins manage everything. Subusers can be granted access to specific servers.
+
+**Backups** — Create, list, and restore backups per server.
+
+**Scheduled tasks** — Cron-based automation for recurring server actions.
+
+**Database management** — Create and manage per-server databases with encrypted credentials.
+
+**Admin panel** — Locations, nests, eggs, users, settings — all manageable from the admin UI.
+
+## What's Coming
+
+We're working toward a stable alpha. Upcoming work includes:
+
+- API key management
+- Advanced permission system
+- Egg/image marketplace
+- Struxa Cloud — a fully managed hosted version, so you don't need to run your own infrastructure
+
+## Self-Hosting Struxa
+
+Struxa is free to self-host. The full source is on GitHub under an open-source license. You'll need:
+
+- A server running the Wings daemon (same as Pterodactyl nodes)
+- A MySQL/MariaDB database
+- Node.js 20+ or Bun
+
+Detailed setup instructions are available at [docs.struxa.cloud](https://docs.struxa.cloud).
+
+## Contributing
+
+Struxa is built to be contributed to. The codebase is TypeScript all the way down — no context switching, no PHP/JS boundary. If you've built with Next.js and oRPC before, you'll feel at home within minutes.
+
+Issues are on GitHub. PRs are welcome. If you're building something with Struxa or have feedback, reach out at [hello@struxa.cloud](mailto:hello@struxa.cloud).
+
+---
+
+We're just getting started. If you've been waiting for a Pterodactyl alternative with a codebase you'd actually want to work in, this is it.
