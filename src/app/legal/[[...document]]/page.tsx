@@ -149,6 +149,7 @@ export async function generateMetadata({ params }: LegalPageProps) {
       title: `${legalDoc.title} - Struxa`,
       description: `Read our ${legalDoc.title.toLowerCase()} to understand how we handle your data and what rights you have.`,
       type: "article",
+      images: [{ url: "https://static.struxa.cloud/social/og.jpeg", width: 1200, height: 630 }],
     },
   };
 }

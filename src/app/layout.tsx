@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og.png",
+        url: "https://static.struxa.cloud/social/og.jpeg",
         width: 1200,
         height: 630,
         alt: "Struxa - Open-source Game Server Management Panel",
@@ -69,6 +69,7 @@ export const metadata: Metadata = {
     description:
       "Open-source, self-hosted game server management panel. A modern replacement for Pterodactyl.",
     creator: "@struxacloud",
+    images: ["https://static.struxa.cloud/social/og.jpeg"],
   },
   robots: {
     index: true,

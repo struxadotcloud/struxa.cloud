@@ -149,6 +149,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       publishedTime: blogPost.date,
       authors: [blogPost.author],
       tags: blogPost.tags,
+      images: [{ url: "https://static.struxa.cloud/social/og.jpeg", width: 1200, height: 630 }],
     },
   }
 }

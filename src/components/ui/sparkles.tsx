@@ -2,7 +2,8 @@
 import React, { useId, useMemo } from 'react';
 import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
-import type { Container, SingleOrMultiple } from '@tsparticles/engine';
+type Container = { start: () => Promise<void> };
+type SingleOrMultiple<T> = T | T[];
 import { loadSlim } from '@tsparticles/slim';
 import { cn } from '@/lib/utils';
 import { motion, useAnimation } from 'motion/react';
@@ -32,7 +33,7 @@ export const SparklesCore = (props: ParticlesProps) => {
   const [init, setInit] = useState(false);
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      await loadSlim(engine as never);
     }).then(() => {
       setInit(true);
     });
@@ -58,7 +59,7 @@ export const SparklesCore = (props: ParticlesProps) => {
           id={id || generatedId}
           className={cn('h-full w-full')}
           particlesLoaded={particlesLoaded}
-          options={{
+          options={({
             background: {
               color: {
                 value: background || '#0d47a1',
@@ -155,10 +156,9 @@ export const SparklesCore = (props: ParticlesProps) => {
               },
               effect: {
                 close: true,
-                fill: true,
                 options: {},
                 type: {} as SingleOrMultiple<string> | undefined,
-              },
+              } as any,
               groups: {},
               move: {
                 angle: {
@@ -426,7 +426,7 @@ export const SparklesCore = (props: ParticlesProps) => {
               },
             },
             detectRetina: true,
-          }}
+          }) as any}
         />
       )}
     </motion.div>
