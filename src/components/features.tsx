@@ -4,8 +4,8 @@ import { BentoCard } from "@/components/ui/bento-card";
 import { FeatureHighlight } from "@/components/ui/feature-highlight";
 import { MovingPartners } from "@/components/ui/moving-partners";
 import { LanguageShowcase } from "@/components/ui/language-showcase";
-import { WhitelabelShowcase } from "@/components/ui/whitelabel-showcase";
 import { VisualFlow } from "@/components/ui/visual-flow";
+import { ArchitectureDiagram } from "@/components/ui/architecture-diagram";
 
 export function Features() {
   return (
@@ -23,13 +23,8 @@ export function Features() {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:auto-rows-[200px]">
-          <BentoCard
-            size="lg"
-            background="gradient"
-            className="min-h-[300px] md:min-h-0 lg:col-span-2 lg:row-span-2"
-            id="journey"
-          >
-            <WhitelabelShowcase />
+          <BentoCard size="md" background="gradient" className="lg:col-span-2">
+            <ArchitectureDiagram />
           </BentoCard>
 
           <BentoCard size="md" background="pattern" compact>
@@ -61,6 +56,13 @@ export function Features() {
             />
           </BentoCard>
 
+          <BentoCard size="md" background="pattern" compact>
+            <FeatureHighlight
+              title="Schedules & Automation"
+              description="Run commands on a cron schedule — automatic restarts, timed broadcasts, routine maintenance — all without touching the server manually."
+            />
+          </BentoCard>
+
           <BentoCard size="md" background="gradient" className="lg:col-span-2">
             <VisualFlow />
           </BentoCard>
@@ -69,6 +71,13 @@ export function Features() {
             <FeatureHighlight
               title="Multi-user & RBAC"
               description="Role-based access with admin and subuser support. Grant teammates access to specific servers without exposing the full panel."
+            />
+          </BentoCard>
+
+          <BentoCard size="md" background="pattern" compact>
+            <FeatureHighlight
+              title="Audit & Activity Log"
+              description="Every power action, file write, and login recorded with timestamp and actor. Know exactly who did what and when."
             />
           </BentoCard>
         </div>

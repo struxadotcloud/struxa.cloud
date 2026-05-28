@@ -17,7 +17,7 @@ const OPTIONS = [
   {
     key: "cloud",
     label: "Struxa Cloud",
-    sub: "Panel hosted by us. Bring your own nodes.",
+    sub: "Hosted panel, your nodes.",
     icon: Cloud,
     accent: "#6b9fd4",
     glow: "rgba(107,159,212,0.06)",

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
+import { PanelPreview } from "@/components/panel-preview";
 import { Footer } from "@/components/footer";
 import SimplePricing from "@/components/mvpblocks/simple-pricing";
 import { CTA } from "@/components/cta";
@@ -14,6 +15,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Features />
+        <PanelPreview />
         <SimplePricing />
         <CTA />
         <FAQ />

@@ -97,10 +97,9 @@ export function Navbar() {
         },
         {
           icon: FileText,
-          href: "https://docs.struxa.cloud/changelog",
+          href: "/changelog",
           label: "Changelog",
           description: "Latest updates, new features, and changes to Struxa.",
-          external: true,
         },
       ],
     },
