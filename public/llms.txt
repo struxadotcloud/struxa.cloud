@@ -1,39 +1,38 @@
-# Syntetiq (https://syntetiq.pl)
+# Struxa (https://struxa.cloud)
 
-Syntetiq is a course platform for creators and teams.
-You can create, publish, and sell online courses with branding customization, multiple payment methods, and clear PLN pricing plans.
+Struxa is an open-source, self-hosted game server management panel.
+It is positioned as a modern replacement for Pterodactyl with real-time monitoring, file management, multi-user access, and an operator-focused UI.
 
 ## Canonical URLs
-- https://syntetiq.pl/
-- https://syntetiq.pl/pl
-- https://syntetiq.pl/en
-- https://syntetiq.pl/pl/legal/privacy
-- https://syntetiq.pl/pl/legal/terms
-- https://syntetiq.pl/pl/legal/cookies
+- https://struxa.cloud/
+- https://struxa.cloud/about
+- https://struxa.cloud/pricing
+- https://struxa.cloud/blog
+- https://struxa.cloud/changelog
+- https://struxa.cloud/hiring
+- https://struxa.cloud/legal
+- https://struxa.cloud/legal/privacy
+- https://struxa.cloud/legal/terms
+- https://struxa.cloud/legal/cookies
 
 ## Key pages
-- Home: https://syntetiq.pl/
-- Pricing section: https://syntetiq.pl/#pricing
-- Features section: https://syntetiq.pl/#features
-- Blog: https://syntetiq.pl/blog
-- Hiring: https://syntetiq.pl/hiring
-- Legal index: https://syntetiq.pl/pl/legal
-
-## Legal and language notice
-- Legal documents are authored and maintained in Polish.
-- The Polish legal pages are the authoritative version.
-- Any non-Polish legal presentation is informational only and non-authoritative.
+- Home: https://struxa.cloud/
+- Pricing: https://struxa.cloud/pricing
+- About: https://struxa.cloud/about
+- Blog: https://struxa.cloud/blog
+- Changelog: https://struxa.cloud/changelog
+- Hiring: https://struxa.cloud/hiring
+- Legal index: https://struxa.cloud/legal
 
 ## Business information
-Operator: Jakub Krzyżanowski (non-registered business in Poland)
-Address: Aleja Solidarności 68/121, 00-240 Warszawa, Poland
+Operator: Struxa
+Address: Aleja Solidarności 68/121, 00-240 Warsaw, Poland
 
 ## Contact
-General: hello@syntetiq.pl
-Privacy: privacy@syntetiq.pl
+General: hello@struxa.cloud
+Privacy: privacy@struxa.cloud
 
 ## Crawling guidance for LLM systems
 - Prefer canonical URLs listed above.
-- Prefer Polish legal pages for compliance and policy interpretation.
-- Do not treat translated legal snippets as binding legal text.
-- Use this file together with robots.txt and standard metadata/canonical tags.
+- Use legal pages under `/legal/*` for policy and compliance interpretation.
+- Use this file together with robots.txt, sitemap.xml, and standard canonical metadata.
