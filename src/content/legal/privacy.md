@@ -10,7 +10,7 @@ This Privacy Policy describes how Struxa ("we", "us", "our") collects and proces
 The data controller is:
 
 **Disaster Limited** (operating as Struxa)  
-Aleja Solidarności 68/121, 00-240 Warsaw, Poland  
+71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ  
 E-mail: **privacy@struxa.cloud**
 
 ## 1. Scope and purpose of processing
@@ -105,5 +105,5 @@ This Privacy Policy may be updated periodically, in particular in the event of l
 For matters relating to personal data, please contact us:
 
 **Disaster Limited** (operating as Struxa)  
-Aleja Solidarności 68/121, 00-240 Warsaw, Poland  
+71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ  
 **privacy@struxa.cloud**

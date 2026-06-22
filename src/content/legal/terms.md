@@ -10,7 +10,7 @@ These Terms of Service govern the use of the website and services offered under 
 The service provider is:
 
 - **Disaster Limited**
-- Address: **Aleja Solidarności 68/121, 00-240 Warsaw, Poland**
+- Address: **71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ**
 - E-mail: **hello@struxa.cloud**
 
 By using the Service or Services, you confirm that you have read these Terms and agree to their content.
@@ -104,5 +104,5 @@ The principles of personal data processing are set out in a separate document: t
 For matters related to these Terms, please contact us:
 
 - E-mail: **hello@struxa.cloud**
-- Address: **Aleja Solidarności 68/121, 00-240 Warsaw, Poland**
+- Address: **71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ**
 - Legal entity: **Disaster Limited**

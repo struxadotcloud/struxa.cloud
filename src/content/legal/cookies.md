@@ -10,7 +10,7 @@ This Cookie Policy explains how Struxa ("we", "us", "our") uses cookies and simi
 The data controller is:
 
 - **Disaster Limited** (operating as Struxa)
-- Aleja Solidarności 68/121, 00-240 Warsaw, Poland
+- 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ
 - E-mail: **hello@struxa.cloud**
 
 ## 2. What are cookies
@@ -79,4 +79,4 @@ We may update this Cookie Policy periodically, in particular in the event of leg
 For questions about this Cookie Policy and data protection:
 
 - E-mail: **hello@struxa.cloud**
-- Address: Aleja Solidarności 68/121, 00-240 Warsaw, Poland
+- Address: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ
