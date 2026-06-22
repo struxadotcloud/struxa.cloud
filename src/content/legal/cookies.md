@@ -9,7 +9,7 @@ This Cookie Policy explains how Struxa ("we", "us", "our") uses cookies and simi
 
 The data controller is:
 
-- **Struxa**
+- **Disaster Limited** (operating as Struxa)
 - Aleja Solidarności 68/121, 00-240 Warsaw, Poland
 - E-mail: **hello@struxa.cloud**
 

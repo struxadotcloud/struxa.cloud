@@ -9,7 +9,7 @@ These Terms of Service govern the use of the website and services offered under 
 
 The service provider is:
 
-- **Struxa**
+- **Disaster Limited**
 - Address: **Aleja Solidarności 68/121, 00-240 Warsaw, Poland**
 - E-mail: **hello@struxa.cloud**
 
@@ -19,7 +19,7 @@ By using the Service or Services, you confirm that you have read these Terms and
 
 For the purposes of these Terms, the following definitions apply:
 
-- **Service Provider** — Struxa, as identified in section 1.
+- **Service Provider** — Disaster Limited, as identified in section 1.
 - **User** — any natural person, legal person, or organisational unit using the Service or Services.
 - **Service** — the website and related resources available under the Struxa brand.
 - **Services** — features, tools, and solutions made available by the Service Provider through the Service.
@@ -105,3 +105,4 @@ For matters related to these Terms, please contact us:
 
 - E-mail: **hello@struxa.cloud**
 - Address: **Aleja Solidarności 68/121, 00-240 Warsaw, Poland**
+- Legal entity: **Disaster Limited**
