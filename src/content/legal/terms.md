@@ -95,9 +95,9 @@ The principles of personal data processing are set out in a separate document: t
 
 ## 12. Final provisions
 
-1. These Terms are governed by Polish law.
+1. These Terms are governed by the laws of England and Wales.
 2. Matters not covered by these Terms are subject to the applicable provisions of generally binding law.
-3. Disputes arising from these Terms shall be resolved by the competent Polish courts, taking into account consumer rights.
+3. Disputes arising from these Terms shall be resolved by the competent courts of England and Wales, taking into account consumer rights.
 
 ## 13. Contact
 
