@@ -10,6 +10,39 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "v1.1.1",
+    date: "2026-07-04",
+    title: "Modrinth Installer & Unified Save Feedback",
+    description:
+      "A focused follow-up to 1.1.0 — install Minecraft plugins and mods straight from Modrinth, plus consistent toast feedback whenever you save a setting.",
+    changes: [
+      "Modrinth plugin & mod installer built into the Minecraft server console",
+      "Save actions across the panel now report success or failure via toast notifications",
+    ],
+    tags: ["minecraft", "ux"],
+    type: "minor",
+  },
+  {
+    version: "v1.1.0",
+    date: "2026-06-28",
+    title: "Billing, Wallet & Shop, Reworked Auth",
+    description:
+      "A major update centered on billing: a wallet and shop system, referral program, subscription extensions, and plan/node capacity checks — alongside a redesigned auth flow and a cleaner nodes and nests admin experience.",
+    changes: [
+      "Wallet, shop, and referral program for billing",
+      "Extend a server's subscription before it expires",
+      "Plan-node filtering with stock checks and sold-out states",
+      "Egg switching on server reinstall, plus a billing tab on the admin user page",
+      "Redesigned auth pages with SMTP-gated password reset",
+      "Nodes and locations merged into one page with a categorized, collapsible table",
+      "Reworked egg import UI in the nests admin section",
+      "EULA and Java version alerts surfaced directly in the server console",
+      "Security hardening: sanitized error logging and resolved code-scanning alerts",
+    ],
+    tags: ["billing", "auth", "nodes", "security"],
+    type: "minor",
+  },
+  {
     version: "v1.0.1",
     date: "2026-05-28",
     title: "Animations, SEO Settings & MIT License",
