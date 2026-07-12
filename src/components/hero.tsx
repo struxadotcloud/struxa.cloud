@@ -29,7 +29,7 @@ export function Hero() {
 
         <div className="mt-8 flex items-center justify-center gap-4">
           <ComingSoonButton>Get Started</ComingSoonButton>
-          <Button href="#" variant="secondary">
+          <Button href="https://github.com/struxadotcloud/struxa" variant="secondary">
             View on GitHub
           </Button>
         </div>

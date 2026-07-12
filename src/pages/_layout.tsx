@@ -12,7 +12,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const data = await getData();
 
   return (
-    <div className="isolate min-h-svh overflow-x-hidden bg-neutral-950 font-sans text-neutral-200">
+    <div className="isolate min-h-svh overflow-x-hidden overflow-y-visible bg-neutral-950 font-sans text-neutral-200">
       <link rel="icon" type="image/png" href={data.icon} />
       <DitherBackground />
 
