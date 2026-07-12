@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const COMMAND = 'bash <(curl -fsSL install.struxa.cloud)';
+const COMMAND = 'bash <(curl -fsSL https://install.struxa.cloud)';
 
 export function InstallCommand() {
   const [copied, setCopied] = useState(false);
