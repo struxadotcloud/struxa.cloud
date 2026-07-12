@@ -1,55 +1,58 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { PaintedUnderline } from "@/components/ui/painted-underline";
+import { Button } from './button';
+import { ComingSoonButton } from './coming-soon-button';
+import { CornerTick } from './corner-tick';
+import { DotGrid } from './dot-grid';
+import { InstallCommand } from './install-command';
+import { RotatingWord } from './rotating-word';
 
 export function Hero() {
   return (
-    <section className="bg-background">
-      <div className="px-6 pt-20 pb-0">
-        {/* Headline */}
-        <h1 className="mb-6 max-w-4xl text-5xl font-bold leading-[1.06] tracking-tight text-foreground md:text-6xl lg:text-[4.5rem] break-words">
-          The modern game{" "}
-          <PaintedUnderline delay={0.3}>server panel</PaintedUnderline>
+    <section className="relative border-b border-neutral-800">
+      <CornerTick position="bl" />
+      <CornerTick position="br" />
+
+      <div className="relative overflow-hidden px-6 pb-20 pt-24 text-center">
+        <DotGrid className="-left-16 top-8" />
+        <DotGrid className="-right-16 top-8" />
+
+        <h1 className="font-display text-5xl font-semibold tracking-tight text-neutral-50 sm:text-6xl">
+          Run, monitor, and <RotatingWord />
+          <br />
+          your game servers.
         </h1>
 
-        {/* Description */}
-        <p className="mb-10 text-base text-muted-foreground leading-relaxed max-w-lg md:text-lg">
-          Open-source, self-hosted alternative to Pterodactyl. Manage your game servers with a modern TypeScript stack, real-time dashboards, and a clean operator-focused UI.
+        <p className="mx-auto mt-6 max-w-xl text-balance text-neutral-400">
+          struxa is a self-hosted, open-source panel for managing game
+          servers — built for operators and hosting providers, with
+          plans, checkout, and subscriptions built in.
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-start gap-3 mb-16">
-          <Button
-            type="button"
-            size="lg"
-            className="px-7 font-semibold"
-            render={<a href="https://github.com/struxadotcloud/struxa" target="_blank" rel="noopener noreferrer" />}
-          >
-            Self-host for free
-            <ArrowRight aria-hidden="true" className="ml-1.5 size-4" />
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <ComingSoonButton>Get Started</ComingSoonButton>
+          <Button href="#" variant="secondary">
+            View on GitHub
           </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="lg"
-            className="px-7 font-semibold"
-            render={<Link href="/pricing" />}
-          >
-            Deployment
-          </Button>
+        </div>
+
+        <div className="mx-auto mt-8 w-fit max-w-full">
+          <InstallCommand />
         </div>
       </div>
 
-      {/* Bottom strip: trust indicators flush to section border */}
-      <div className="px-6 py-4 border-t border-border flex flex-wrap items-center gap-x-8 gap-y-2">
-        <span className="text-sm text-muted-foreground">100% open source</span>
-        <span aria-hidden="true" className="hidden sm:block w-px h-4 bg-border" />
-        <span className="text-sm text-muted-foreground">No vendor lock-in</span>
-        <span aria-hidden="true" className="hidden sm:block w-px h-4 bg-border" />
-        <span className="text-sm text-muted-foreground">Built for operators</span>
+      <div className="relative flex flex-wrap items-center justify-center gap-x-8 gap-y-2 border-t border-neutral-800 px-6 py-4">
+        <CornerTick position="tl" />
+        <CornerTick position="tr" />
+        <span className="font-mono text-xs text-neutral-500">
+          100% open source
+        </span>
+        <span className="hidden h-4 w-px bg-neutral-800 sm:block" />
+        <span className="font-mono text-xs text-neutral-500">
+          No vendor lock-in
+        </span>
+        <span className="hidden h-4 w-px bg-neutral-800 sm:block" />
+        <span className="font-mono text-xs text-neutral-500">
+          Built for operators
+        </span>
       </div>
     </section>
   );
