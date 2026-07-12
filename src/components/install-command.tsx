@@ -15,7 +15,7 @@ export function InstallCommand() {
 
   return (
     <div className="flex items-center justify-between gap-4 border border-neutral-800 bg-neutral-950/60 px-4 py-3">
-      <code className="font-mono text-sm text-neutral-300">
+      <code className="min-w-0 overflow-x-auto whitespace-nowrap font-mono text-sm text-neutral-300">
         <span className="text-blue-400">$</span> {COMMAND}
       </code>
       <button

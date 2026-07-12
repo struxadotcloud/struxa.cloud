@@ -1,16 +1,23 @@
 import { FeatureCell, FeatureGrid, FeatureRow } from '../components/bento-grid';
 import { DitherText } from '../components/dither-text';
 import { DotGrid } from '../components/dot-grid';
+import { FaqSection } from '../components/faq-section';
 import { Hero } from '../components/hero';
+import { ManagedCloudCta } from '../components/managed-cloud-cta';
 import { PlanCatalog } from '../components/plan-catalog';
 import { ScreenshotGallery } from '../components/screenshot-gallery';
 import { SectionHeader } from '../components/section';
+import { Seo } from '../components/seo';
 import { StatGraphs } from '../components/stat-graphs';
 
 export default function HomePage() {
   return (
     <div>
-      <title>struxa — self-hosted game server management</title>
+      <Seo
+        title="struxa — self-hosted game server management"
+        description="struxa is a self-hosted, open-source panel for managing game servers — the panel, the agent, and the storefront in one modern stack."
+        path="/"
+      />
 
       <Hero />
 
@@ -65,6 +72,10 @@ export default function HomePage() {
           </FeatureRow>
         </FeatureGrid>
       </section>
+
+      <ManagedCloudCta />
+
+      <FaqSection />
     </div>
   );
 }

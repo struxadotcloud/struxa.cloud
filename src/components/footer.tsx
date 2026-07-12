@@ -1,7 +1,27 @@
 const columns = [
-  { title: 'Product', links: ['Pricing', 'Docs', 'Changelog'] },
-  { title: 'Resources', links: ['GitHub', 'Discord', 'Installer'] },
-  { title: 'Company', links: ['Blog', 'Contact'] },
+  {
+    title: 'Product',
+    links: [
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Docs', href: 'https://docs.struxa.cloud' },
+      { label: 'Changelog', href: '/changelog' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/struxadotcloud/struxa' },
+      { label: 'Discord', href: 'https://discord.gg/struxa' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
+      { label: 'Cookies', href: '/cookies' },
+    ],
+  },
 ];
 
 export const Footer = () => {
@@ -23,12 +43,12 @@ export const Footer = () => {
               </p>
               <ul className="mt-3 space-y-2">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-neutral-400 hover:text-neutral-100"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

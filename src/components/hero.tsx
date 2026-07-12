@@ -1,4 +1,5 @@
 import { Button } from './button';
+import { ComingSoonButton } from './coming-soon-button';
 import { CornerTick } from './corner-tick';
 import { DotGrid } from './dot-grid';
 import { InstallCommand } from './install-command';
@@ -27,7 +28,7 @@ export function Hero() {
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-4">
-          <Button href="#">Get Started</Button>
+          <ComingSoonButton>Get Started</ComingSoonButton>
           <Button href="#" variant="secondary">
             View on GitHub
           </Button>

@@ -50,6 +50,8 @@ export function ScreenshotGallery() {
             key={shot.src}
             src={shot.src}
             alt={shot.label}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            decoding="async"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
               i === active ? 'opacity-100' : 'opacity-0'
             }`}

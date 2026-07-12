@@ -1,3 +1,5 @@
+'use client';
+
 import type { ReactNode } from 'react';
 
 type ButtonProps = {
@@ -15,7 +17,11 @@ export function Button({ href, children, variant = 'primary' }: ButtonProps) {
       : 'bg-neutral-800 text-neutral-200 hover:bg-neutral-700';
 
   return (
-    <a href={href} className={`${base} ${styles}`}>
+    <a
+      href={href}
+      onClick={href === '#' ? (e) => e.preventDefault() : undefined}
+      className={`${base} ${styles}`}
+    >
       {children}
     </a>
   );

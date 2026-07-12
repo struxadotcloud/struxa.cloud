@@ -1,9 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from './button';
+import { ComingSoonButton } from './coming-soon-button';
 
-const links = ['Pricing', 'Docs', 'GitHub', 'Discord'];
+const links = [
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Docs', href: 'https://docs.struxa.cloud' },
+  { label: 'GitHub', href: 'https://github.com/struxadotcloud/struxa' },
+  { label: 'Discord', href: 'https://discord.gg/struxa' },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,22 +38,25 @@ export function Navbar() {
         }`}
       >
         {links.map((link) => (
-          <a key={link} href="#" className="hover:text-neutral-100">
-            {link}
+          <a
+            key={link.label}
+            href={link.href}
+            className="hover:text-neutral-100"
+          >
+            {link.label}
           </a>
         ))}
       </nav>
 
       <div className="flex items-center gap-4">
-        <a
-          href="#"
-          className={`hidden overflow-hidden whitespace-nowrap font-mono text-xs uppercase tracking-widest text-neutral-400 transition-all duration-300 ease-out hover:text-neutral-100 sm:block ${
+        <div
+          className={`hidden overflow-hidden whitespace-nowrap transition-all duration-300 ease-out sm:block ${
             scrolled ? 'max-w-0 opacity-0' : 'max-w-24 opacity-100'
           }`}
         >
-          Log in
-        </a>
-        <Button href="#">Get Started</Button>
+          <ComingSoonButton variant="text">Log in</ComingSoonButton>
+        </div>
+        <ComingSoonButton>Get Started</ComingSoonButton>
       </div>
     </header>
   );
