@@ -22,10 +22,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 flex items-center justify-between border-b transition-all duration-300 ease-out ${
+      className={`sticky top-0 z-50 flex items-center justify-between border-b pt-[calc(env(safe-area-inset-top)+var(--navbar-py))] transition-all duration-300 ease-out ${
         scrolled
-          ? 'gap-4 border-neutral-800 bg-neutral-950/90 px-6 py-3 shadow-sm shadow-black/40 backdrop-blur'
-          : 'gap-4 border-transparent bg-transparent px-6 py-6'
+          ? 'gap-4 border-neutral-800 bg-neutral-950 px-6 pb-3 shadow-sm shadow-black/40 [--navbar-py:1.25rem]'
+          : 'gap-4 border-transparent bg-transparent px-6 pb-6 [--navbar-py:1.5rem]'
       }`}
     >
       <a href="/">

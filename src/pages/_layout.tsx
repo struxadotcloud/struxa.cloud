@@ -12,8 +12,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const data = await getData();
 
   return (
-    <div className="isolate min-h-svh overflow-x-hidden overflow-y-visible bg-neutral-950 font-sans text-neutral-200">
+    <div className="isolate min-h-svh bg-neutral-950 font-sans text-neutral-200">
       <link rel="icon" type="image/png" href={data.icon} />
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       <DitherBackground />
 
       <div className="relative mx-auto flex min-h-svh max-w-6xl flex-col border-x border-neutral-800">
