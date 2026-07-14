@@ -11,8 +11,7 @@
   --font-display: 'Funnel Display', 'Geist Variable', system-ui, sans-serif;
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
 }
 
