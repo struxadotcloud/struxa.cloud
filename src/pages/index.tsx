@@ -8,6 +8,7 @@ import { PlanCatalog } from '../components/plan-catalog';
 import { ScreenshotGallery } from '../components/screenshot-gallery';
 import { SectionHeader } from '../components/section';
 import { Seo } from '../components/seo';
+import { SponsorsSection } from '../components/sponsors-section';
 import { StatGraphs } from '../components/stat-graphs';
 
 export default function HomePage() {
@@ -20,6 +21,8 @@ export default function HomePage() {
       />
 
       <Hero />
+
+      <SponsorsSection />
 
       <section className="relative">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
