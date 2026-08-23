@@ -3,6 +3,7 @@ const columns = [
     title: 'Product',
     links: [
       { label: 'Pricing', href: '/pricing' },
+      { label: 'Compare', href: '/compare' },
       { label: 'Docs', href: 'https://docs.struxa.cloud' },
       { label: 'Changelog', href: '/changelog' },
     ],

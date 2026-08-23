@@ -49,11 +49,11 @@ export function FaqSection() {
         {FAQS.map((item, i) => {
           const isOpen = open === i;
           return (
-            <div key={item.q}>
+            <div key={item.q} className="transition-colors hover:bg-neutral-900/50">
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-neutral-900/50 md:px-16"
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left md:px-16"
               >
                 <span className="font-medium text-neutral-100">{item.q}</span>
                 <span

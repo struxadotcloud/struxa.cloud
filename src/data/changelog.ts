@@ -10,6 +10,37 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v1.1.4',
+    date: '2026-08-20',
+    title: 'Backup Destinations and Google Drive',
+    description:
+      'Choose where each backup lands — local storage, S3, or Google Drive. Every server can have its own destination, with admin-level defaults and hardened OAuth security throughout.',
+    changes: [
+      'Google Drive backup destination with OAuth, download, and remote config routes',
+      'Per-server backup destination on create and edit, with a global admin default',
+      'Opt-in public downloads for S3 backups, with graceful panel handling',
+      'Security hardening: token revocation on disconnect, remote_id validation, filename sanitization, and race guards',
+    ],
+    tags: ['backups', 'google-drive', 'security'],
+    type: 'minor',
+  },
+  {
+    version: 'v1.1.3',
+    date: '2026-07-19',
+    title: 'Multi-Engine Databases and Panel Redesign',
+    description:
+      'Database hosts now support MySQL, MariaDB, PostgreSQL, MongoDB and Redis — plus a full visual refresh: new dark theme, Funnel Display headings, and dither-kit charts and avatars across the panel.',
+    changes: [
+      'Database hosts now support MySQL, MariaDB, PostgreSQL, MongoDB and Redis',
+      'Redesigned admin danger zones, user pickers with avatars, and allocation UI',
+      'Dither-kit generative avatars as the default user avatar',
+      'Server info sparklines replaced with dither-kit charts',
+      'Host selection now uses cryptographically secure randomness',
+    ],
+    tags: ['database', 'design'],
+    type: 'minor',
+  },
+  {
     version: 'v1.1.1',
     date: '2026-07-04',
     title: 'Modrinth Installer & Unified Save Feedback',

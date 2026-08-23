@@ -5,6 +5,7 @@ import { ComingSoonButton } from './coming-soon-button';
 
 const links = [
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Compare', href: '/compare' },
   { label: 'Docs', href: 'https://docs.struxa.cloud' },
   { label: 'GitHub', href: 'https://github.com/struxadotcloud/struxa' },
   { label: 'Discord', href: 'https://discord.gg/struxa' },
