@@ -12,7 +12,7 @@ const columns = [
     title: 'Resources',
     links: [
       { label: 'GitHub', href: 'https://github.com/struxadotcloud/struxa' },
-      { label: 'Discord', href: 'https://discord.gg/struxa' },
+      { label: 'Discord', href: 'https://discord.struxa.cloud' },
     ],
   },
   {
