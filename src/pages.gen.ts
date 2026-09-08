@@ -6,6 +6,8 @@ import type { PathsForPages, GetConfigResponse, SearchCodecsForPages } from 'wak
 // prettier-ignore
 import type { getConfig as File_404_getConfig } from './pages/404';
 // prettier-ignore
+import type { getConfig as File_Branding_getConfig } from './pages/branding';
+// prettier-ignore
 import type { getConfig as File_Changelog_getConfig } from './pages/changelog';
 // prettier-ignore
 import type { getConfig as File_Compare_getConfig } from './pages/compare';
@@ -23,6 +25,7 @@ import type { getConfig as File_Terms_getConfig } from './pages/terms';
 // prettier-ignore
 type Page =
 | ({ path: '/404' } & GetConfigResponse<typeof File_404_getConfig>)
+| ({ path: '/branding' } & GetConfigResponse<typeof File_Branding_getConfig>)
 | ({ path: '/changelog' } & GetConfigResponse<typeof File_Changelog_getConfig>)
 | ({ path: '/compare' } & GetConfigResponse<typeof File_Compare_getConfig>)
 | ({ path: '/cookies' } & GetConfigResponse<typeof File_Cookies_getConfig>)

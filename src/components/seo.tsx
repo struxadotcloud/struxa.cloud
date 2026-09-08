@@ -7,7 +7,7 @@ type SeoProps = {
   image?: string;
 };
 
-export function Seo({ title, description, path, image = '/images/og-image.png' }: SeoProps) {
+export function Seo({ title, description, path, image = '/images/brand/social.jpg' }: SeoProps) {
   const url = `${SITE_URL}${path}`;
   const imageUrl = `${SITE_URL}${image}`;
 
@@ -24,7 +24,7 @@ export function Seo({ title, description, path, image = '/images/og-image.png' }
       <meta property="og:url" content={url} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:height" content="662" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />

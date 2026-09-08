@@ -33,7 +33,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 
 const getData = async () => {
   const data = {
-    icon: '/images/favicon.png',
+    icon: '/images/brand/favicon.png',
   };
 
   return data;

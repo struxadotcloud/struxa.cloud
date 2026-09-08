@@ -6,6 +6,7 @@
 @import '@fontsource/funnel-display/700.css';
 
 @theme {
+  --color-blue-600: #155dfc;
   --font-sans: 'Geist Variable', system-ui, sans-serif;
   --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
   --font-display: 'Funnel Display', 'Geist Variable', system-ui, sans-serif;

@@ -30,11 +30,11 @@ export function Navbar() {
       }`}
     >
       <a href="/">
-        <img src="/assets/logo-white.svg" alt="struxa" className="h-6 w-6" />
+        <img src="/images/brand/wordmark.png" alt="struxa" width="448" height="90" className="h-auto w-28 shrink-0" />
       </a>
 
       <nav
-        className={`absolute left-1/2 hidden -translate-x-1/2 items-center font-mono text-xs uppercase tracking-widest text-neutral-400 transition-[gap] duration-300 ease-out md:flex ${
+        className={`hidden items-center font-mono text-xs uppercase tracking-widest text-neutral-400 transition-[gap] duration-300 ease-out lg:flex ${
           scrolled ? 'gap-5' : 'gap-8'
         }`}
       >

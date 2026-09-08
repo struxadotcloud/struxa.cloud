@@ -11,6 +11,7 @@ const columns = [
   {
     title: 'Resources',
     links: [
+      { label: 'Branding', href: '/branding' },
       { label: 'GitHub', href: 'https://github.com/struxadotcloud/struxa' },
       { label: 'Discord', href: 'https://discord.struxa.cloud' },
     ],
@@ -30,7 +31,9 @@ export const Footer = () => {
     <footer className="px-6 py-12">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr]">
         <div>
-          <img src="/assets/logo-white.svg" alt="struxa" className="h-5 w-5" />
+          <a href="/" aria-label="struxa home">
+            <img src="/images/brand/wordmark.png" alt="struxa" width="448" height="90" className="h-auto w-28" />
+          </a>
           <p className="mt-3 max-w-xs text-sm text-neutral-500">
             Self-hosted, open-source game server management.
           </p>
