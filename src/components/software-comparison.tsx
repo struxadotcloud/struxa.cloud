@@ -1,126 +1,137 @@
 'use client';
 
-import { Fragment, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 type FeatureValue = boolean | string;
 type SoftwareId = 'pterodactyl' | 'pelican' | 'manual';
 
-type Feature = {
-  name: string;
+type AtAGlanceRow = {
+  label: string;
   struxa: FeatureValue;
   competitors: Record<SoftwareId, FeatureValue>;
 };
 
-const SOFTWARE_OPTIONS: { id: SoftwareId; label: string; pitch: string }[] = [
-  { id: 'pterodactyl', label: 'Pterodactyl', pitch: 'Legacy panel baseline' },
-  { id: 'pelican', label: 'Pelican', pitch: 'Community-first fork baseline' },
-  { id: 'manual', label: 'DIY stack', pitch: 'Build and maintain it yourself' },
+const SOFTWARE_OPTIONS: { id: SoftwareId; label: string; subtitle: string }[] = [
+  { id: 'pterodactyl', label: 'Pterodactyl', subtitle: 'Classic panel baseline' },
+  { id: 'pelican', label: 'Pelican', subtitle: 'Fork baseline' },
+  { id: 'manual', label: 'DIY stack', subtitle: 'Assemble everything yourself' },
 ];
 
-const CATEGORIES: { name: string; features: Feature[] }[] = [
+const AT_A_GLANCE_ROWS: AtAGlanceRow[] = [
+  { label: 'Open-source self-hosting', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: true } },
+  { label: 'Built-in billing and subscriptions', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
+  { label: 'Customer storefront included', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
+  { label: 'Wallet and credit workflow', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
+  { label: 'One-line install flow', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
   {
-    name: 'Core',
-    features: [
-      { name: 'Open source', struxa: 'MIT', competitors: { pterodactyl: 'Custom license', pelican: 'AGPL-3.0', manual: 'Varies' } },
-      { name: 'Docker-isolated servers', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: 'Custom setup' } },
-      { name: 'Egg templates for game servers', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: 'Manual import' } },
-      { name: 'Security — 2FA, SSL, encryption', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: 'Manual hardening' } },
-      { name: 'Free to self-host', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: true } },
-    ],
+    label: 'Operational overhead',
+    struxa: 'Low',
+    competitors: { pterodactyl: 'Medium', pelican: 'Medium', manual: 'High' },
   },
   {
-    name: 'Business-ready',
-    features: [
-      { name: 'Built-in billing, wallet, subscriptions', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
-      { name: 'Launch paid plans without extra plugins', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
-      { name: 'Backup destinations — S3, Google Drive', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: 'Extra tooling' } },
-      { name: 'Custom domain and branding', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: true } },
-      { name: 'Internationalization', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: 'Custom localization' } },
-    ],
-  },
-  {
-    name: 'Operations',
-    features: [
-      { name: 'One-line installer', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
-      { name: 'Real-time resource monitoring', struxa: true, competitors: { pterodactyl: true, pelican: true, manual: 'Multiple tools' } },
-      { name: 'Managed cloud hosting path', struxa: 'Waitlist', competitors: { pterodactyl: false, pelican: false, manual: false } },
-      { name: 'Integrated admin and customer experience', struxa: true, competitors: { pterodactyl: false, pelican: false, manual: false } },
-    ],
+    label: 'Best fit',
+    struxa: 'Panels + business in one stack',
+    competitors: {
+      pterodactyl: 'Panel-only setup',
+      pelican: 'Panel-only setup',
+      manual: 'Custom architecture teams',
+    },
   },
 ];
 
-function Cell({ value, highlight }: { value: FeatureValue; highlight?: boolean }) {
+function Cell({ value, highlight, align = 'center' }: { value: FeatureValue; highlight?: boolean; align?: 'center' | 'left' }) {
   if (typeof value === 'boolean') {
     return value ? (
-      <svg viewBox="0 0 12 12" className={`mx-auto h-3.5 w-3.5 ${highlight ? 'text-blue-400' : 'text-neutral-500'}`}>
+      <svg viewBox="0 0 12 12" className={`h-3.5 w-3.5 ${align === 'center' ? 'mx-auto' : ''} ${highlight ? 'text-blue-400' : 'text-neutral-500'}`}>
         <path d="M2 6l3 3 5-6" stroke="currentColor" strokeWidth="1.5" fill="none" />
       </svg>
     ) : (
       <span className="text-neutral-700">—</span>
     );
   }
-  return <span className={highlight ? 'text-blue-400' : 'text-neutral-400'}>{value}</span>;
+  return <span className={`${highlight ? 'text-blue-300' : 'text-neutral-300'} ${align === 'left' ? 'text-left' : ''}`}>{value}</span>;
 }
 
 export function SoftwareComparison() {
   const [selected, setSelected] = useState<SoftwareId>('pterodactyl');
   const selectedOption = useMemo(() => SOFTWARE_OPTIONS.find((option) => option.id === selected)!, [selected]);
+  const wins = useMemo(
+    () =>
+      AT_A_GLANCE_ROWS.reduce((count, row) => {
+        const competitorValue = row.competitors[selected];
+        return count + Number(row.struxa === true && competitorValue === false);
+      }, 0),
+    [selected]
+  );
 
   return (
     <>
-      <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+      <div className="mb-6 grid gap-3 md:grid-cols-[1fr_auto] md:items-end">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">At a glance</p>
+          <h3 className="mt-1 text-lg font-semibold text-neutral-50">Choose software to compare against struxa</h3>
+        </div>
+        <div className="inline-flex rounded-lg border border-neutral-800 bg-neutral-950 p-1">
           {SOFTWARE_OPTIONS.map((option) => (
             <button
               key={option.id}
               type="button"
               onClick={() => setSelected(option.id)}
-              className={`border px-3 py-2 text-left transition-colors ${
+              className={`rounded-md px-3 py-2 text-left transition-colors ${
                 selected === option.id
-                  ? 'border-blue-500 bg-blue-500/10'
-                  : 'border-neutral-800 bg-neutral-900/20 hover:bg-neutral-900'
+                  ? 'bg-blue-500/20 text-blue-300'
+                  : 'text-neutral-400 hover:bg-neutral-900'
               }`}
             >
-              <p className={`font-mono text-[11px] uppercase tracking-wide ${selected === option.id ? 'text-blue-300' : 'text-neutral-400'}`}>
-                {option.label}
-              </p>
-              <p className="mt-0.5 font-mono text-[11px] text-neutral-600">{option.pitch}</p>
+              <p className="font-mono text-[11px] uppercase tracking-wide">{option.label}</p>
             </button>
           ))}
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse font-mono text-xs">
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
+        <div className="border border-blue-500/40 bg-blue-500/5 px-4 py-3">
+          <p className="font-mono text-[11px] uppercase tracking-wide text-blue-300">struxa edge</p>
+          <p className="mt-1 font-display text-2xl text-neutral-50">{wins} rows</p>
+          <p className="mt-1 text-[11px] text-neutral-400">Where struxa provides built-in capabilities and {selectedOption.label} does not.</p>
+        </div>
+        <div className="border border-neutral-800 bg-neutral-900/30 px-4 py-3">
+          <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Compared software</p>
+          <p className="mt-1 font-display text-xl text-neutral-100">{selectedOption.label}</p>
+          <p className="mt-1 text-[11px] text-neutral-500">{selectedOption.subtitle}</p>
+        </div>
+        <div className="border border-neutral-800 bg-neutral-900/30 px-4 py-3">
+          <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Comparison mode</p>
+          <p className="mt-1 font-display text-xl text-neutral-100">At-a-glance</p>
+          <p className="mt-1 text-[11px] text-neutral-500">Focused on setup speed, business features, and ongoing operations.</p>
+        </div>
+      </div>
+
+      <div className="overflow-x-auto border-y border-neutral-800">
+        <table className="w-full min-w-[680px] border-collapse font-mono text-xs">
           <thead>
             <tr className="border-b border-neutral-800">
-              <th className="py-3.5 pr-4 pl-0 text-left font-normal uppercase tracking-wide text-neutral-500">Feature</th>
-              <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-blue-400">struxa</th>
-              <th className="py-3.5 pr-0 pl-4 text-center font-normal uppercase tracking-wide text-neutral-500">
+              <th className="px-4 py-3.5 text-left font-normal uppercase tracking-wide text-neutral-500 md:px-6">Category</th>
+              <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-blue-400 md:px-6">struxa</th>
+              <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-neutral-500 md:px-6">
                 {selectedOption.label}
               </th>
             </tr>
           </thead>
           <tbody>
-            {CATEGORIES.map((category) => (
-              <Fragment key={category.name}>
-                <tr className="border-b border-neutral-800 bg-neutral-900/40">
-                  <td colSpan={3} className="py-2.5 pr-0 pl-0 text-neutral-300">
-                    {category.name}
-                  </td>
-                </tr>
-                {category.features.map((feature) => (
-                  <tr key={feature.name} className="border-b border-neutral-800">
-                    <td className="py-3 pr-4 pl-0 text-neutral-300">{feature.name}</td>
-                    <td className="px-4 py-3 text-center">
-                      <Cell value={feature.struxa} highlight />
-                    </td>
-                    <td className="py-3 pr-0 pl-4 text-center">
-                      <Cell value={feature.competitors[selected]} />
-                    </td>
-                  </tr>
-                ))}
-              </Fragment>
+            {AT_A_GLANCE_ROWS.map((row) => (
+              <tr key={row.label} className="border-b border-neutral-800 last:border-b-0">
+                <td className="px-4 py-3 text-neutral-300 md:px-6">{row.label}</td>
+                <td className="px-4 py-3 text-center md:px-6">
+                  <Cell value={row.struxa} highlight align={typeof row.struxa === 'boolean' ? 'center' : 'left'} />
+                </td>
+                <td className="px-4 py-3 text-center md:px-6">
+                  <Cell
+                    value={row.competitors[selected]}
+                    align={typeof row.competitors[selected] === 'boolean' ? 'center' : 'left'}
+                  />
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>
