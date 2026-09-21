@@ -29,10 +29,10 @@ export function StatGraphs() {
     <div className="grid grid-cols-1 divide-y divide-neutral-800 border-t border-neutral-800 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
       {METRICS.map((metric, i) => (
         <div key={metric.label} className="overflow-hidden pt-4">
-          <p className="px-4 font-mono text-[11px] uppercase tracking-wide text-neutral-500">
+          <p className="px-4 text-[11px] uppercase tracking-wide text-neutral-500">
             {metric.label}
           </p>
-          <p className="mt-1 px-4 font-mono text-lg text-neutral-100">
+          <p className="mt-1 px-4 text-lg text-neutral-100">
             {Math.round(series[i]![series[i]!.length - 1]!)}%
           </p>
           <div className="mt-3">

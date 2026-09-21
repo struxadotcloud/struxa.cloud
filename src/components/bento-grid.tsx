@@ -1,13 +1,8 @@
 import type { ReactNode } from 'react';
-import { CornerTick } from './corner-tick';
 
 export function FeatureGrid({ children }: { children: ReactNode }) {
   return (
-    <div className="relative border-y border-neutral-800">
-      <CornerTick position="tl" />
-      <CornerTick position="tr" />
-      <CornerTick position="bl" />
-      <CornerTick position="br" />
+    <div className="relative">
       <div className="divide-y divide-neutral-800">{children}</div>
     </div>
   );

@@ -5,14 +5,14 @@ import { TERMS } from '../data/legal-content';
 
 export default function TermsPage() {
   return (
-    <div>
+    <div className="mx-auto w-full max-w-6xl">
       <Seo
         title="Terms of Service — struxa"
         description="The terms that govern your use of struxa's website and services."
         path="/terms"
       />
 
-      <div className="px-6 pt-20 md:px-16">
+      <div className="px-6 pt-16">
         <SectionHeader
           label="Legal"
           heading="Terms of Service"

@@ -9,7 +9,7 @@ export function SectionHeader({
 }) {
   return (
     <div className="mb-12 max-w-xl">
-      <p className="font-mono text-xs uppercase tracking-wide text-blue-500">
+      <p className="text-xs uppercase tracking-wide text-blue-500">
         {label}
       </p>
       <h2 className="mt-3 font-display text-3xl font-semibold text-neutral-50 md:text-4xl">

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
+import { Button } from './ui/button';
 
 const COMMAND = 'bash <(curl -fsSL https://install.struxa.cloud)';
 
@@ -14,17 +16,19 @@ export function InstallCommand() {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border border-neutral-800 bg-neutral-950/60 px-4 py-3">
-      <code className="min-w-0 overflow-x-auto whitespace-nowrap font-mono text-sm text-neutral-300">
+    <div className="flex items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-950/60 py-2 pl-4 pr-2 shadow-sm shadow-black/30">
+      <code className="min-w-0 overflow-x-auto whitespace-nowrap text-sm text-neutral-300">
         <span className="text-blue-400">$</span> {COMMAND}
       </code>
-      <button
-        type="button"
+      <Button
+        variant="ghost"
+        size="icon-sm"
         onClick={copy}
-        className="shrink-0 border border-neutral-800 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-neutral-300 transition-colors hover:bg-neutral-900"
+        aria-label={copied ? 'Copied' : 'Copy install command'}
+        className="shrink-0 text-neutral-400 hover:text-neutral-100"
       >
-        {copied ? 'Copied' : 'Copy'}
-      </button>
+        {copied ? <Check className="text-blue-400" /> : <Copy />}
+      </Button>
     </div>
   );
 }

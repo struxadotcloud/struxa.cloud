@@ -92,10 +92,10 @@ function renderBlock(block: Block, i: number): ReactNode {
 
 export function LegalDocument({ doc }: { doc: LegalDoc }) {
   return (
-    <div className="relative border-t border-neutral-800">
-      <div className="px-6 py-14 md:px-16">
+    <div className="relative">
+      <div className="px-6 py-10">
         <article className="max-w-2xl space-y-10">
-          <p className="font-mono text-xs uppercase tracking-wide text-neutral-500">
+          <p className="text-xs uppercase tracking-wide text-neutral-500">
             Last updated <span className="text-neutral-300">{doc.lastUpdated}</span>
           </p>
 
@@ -110,8 +110,8 @@ export function LegalDocument({ doc }: { doc: LegalDoc }) {
         </article>
       </div>
 
-      <div className="hidden border border-neutral-800 bg-neutral-950 p-5 md:absolute md:right-0 md:top-0 md:block md:w-96 md:border-r-0 md:border-t-0">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">On this page</p>
+      <div className="hidden rounded-2xl border border-neutral-800 bg-neutral-900/30 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.03)] md:absolute md:right-6 md:top-10 md:block md:w-72">
+        <p className="text-[10px] uppercase tracking-widest text-neutral-500">On this page</p>
         <ul className="mt-3 space-y-2">
           {doc.sections.map((section) => (
             <li key={section.id}>

@@ -5,14 +5,14 @@ import { PRIVACY } from '../data/legal-content';
 
 export default function PrivacyPage() {
   return (
-    <div>
+    <div className="mx-auto w-full max-w-6xl">
       <Seo
         title="Privacy Policy — struxa"
         description="How struxa collects, uses, and protects your personal data."
         path="/privacy"
       />
 
-      <div className="px-6 pt-20 md:px-16">
+      <div className="px-6 pt-16">
         <SectionHeader
           label="Legal"
           heading="Privacy Policy"

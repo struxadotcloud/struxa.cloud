@@ -26,7 +26,7 @@ export function PlanCatalog() {
                 : 'border-transparent hover:bg-neutral-900'
             }`}
           >
-            <p className="font-mono text-xs text-neutral-500">{p.name}</p>
+            <p className="text-xs text-neutral-500">{p.name}</p>
             <p className="mt-1 font-display text-lg font-semibold text-neutral-50">
               ${p.price}
               <span className="text-xs font-normal text-neutral-500">/mo</span>
@@ -35,7 +35,7 @@ export function PlanCatalog() {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 divide-x divide-neutral-800 border-t border-neutral-800 font-mono text-[11px] text-neutral-400">
+      <div className="grid grid-cols-3 divide-x divide-neutral-800 border-t border-neutral-800 text-[11px] text-neutral-400">
         {[
           ['RAM', plan.ram],
           ['CPU', plan.cpu],
@@ -50,7 +50,7 @@ export function PlanCatalog() {
 
       <button
         type="button"
-        className="flex w-full items-center justify-between border-t border-neutral-800 px-4 py-3 font-mono text-xs text-neutral-300 transition-colors hover:bg-neutral-900"
+        className="flex w-full items-center justify-between border-t border-neutral-800 px-4 py-3 text-xs text-neutral-300 transition-colors hover:bg-neutral-900"
       >
         <span>Subscribe · {plan.name}</span>
         <span className="text-blue-400">checkout →</span>

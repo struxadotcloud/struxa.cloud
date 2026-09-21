@@ -1,4 +1,6 @@
 import { Fragment } from 'react';
+import { Check } from 'lucide-react';
+import { CtaSection } from '../components/cta-section';
 import { SectionHeader } from '../components/section';
 import { Seo } from '../components/seo';
 
@@ -46,11 +48,9 @@ const CATEGORIES: {
 function Cell({ value, highlight }: { value: FeatureValue; highlight?: boolean }) {
   if (typeof value === 'boolean') {
     return value ? (
-      <svg viewBox="0 0 12 12" className={`mx-auto h-3.5 w-3.5 ${highlight ? 'text-blue-400' : 'text-neutral-500'}`}>
-        <path d="M2 6l3 3 5-6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      </svg>
+      <Check className={`mx-auto size-3.5 ${highlight ? 'text-blue-400' : 'text-neutral-500'}`} />
     ) : (
-      <span className="text-neutral-700">—</span>
+      <span className="text-neutral-700">-</span>
     );
   }
   return <span className={highlight ? 'text-blue-400' : 'text-neutral-400'}>{value}</span>;
@@ -58,14 +58,14 @@ function Cell({ value, highlight }: { value: FeatureValue; highlight?: boolean }
 
 export default function ComparePage() {
   return (
-    <div>
+    <div className="mx-auto w-full max-w-6xl">
       <Seo
         title="Compare — struxa"
         description="How struxa stacks up against Pterodactyl and Pelican."
         path="/compare"
       />
 
-      <div className="px-6 pt-20 md:px-16">
+      <div className="px-6 pt-16">
         <SectionHeader
           label="Compare"
           heading="How struxa stacks up."
@@ -73,12 +73,12 @@ export default function ComparePage() {
         />
       </div>
 
-      <div className="border-t border-neutral-800 px-6 py-14 md:px-16">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[640px] border-collapse font-mono text-xs">
+      <div className="px-6 py-10">
+        <div className="overflow-x-auto rounded-2xl border border-neutral-800 bg-neutral-900/30 shadow-[inset_0_1px_0_rgb(255_255_255/0.03)]">
+          <table className="w-full min-w-[36rem] border-collapse text-xs">
             <thead>
-              <tr className="border-b border-neutral-800">
-                <th className="px-6 py-3.5 text-left font-normal uppercase tracking-wide text-neutral-500 md:px-16">
+              <tr className="border-b border-neutral-800/70">
+                <th className="px-5 py-3.5 text-left font-normal uppercase tracking-wide text-neutral-500">
                   Feature
                 </th>
                 <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-blue-400">struxa</th>
@@ -93,14 +93,14 @@ export default function ComparePage() {
             <tbody>
               {CATEGORIES.map((category) => (
                 <Fragment key={category.name}>
-                  <tr className="border-b border-neutral-800 bg-neutral-900/40">
-                    <td colSpan={4} className="px-6 py-2.5 text-neutral-300 md:px-16">
+                  <tr className="border-b border-neutral-800/70 bg-white/[0.02]">
+                    <td colSpan={4} className="px-5 py-2.5 text-neutral-300">
                       {category.name}
                     </td>
                   </tr>
                   {category.features.map((feature) => (
-                    <tr key={feature.name} className="border-b border-neutral-800">
-                      <td className="px-6 py-3 text-neutral-300 md:px-16">{feature.name}</td>
+                    <tr key={feature.name} className="border-b border-neutral-800/50 last:border-b-0">
+                      <td className="px-5 py-3 text-neutral-300">{feature.name}</td>
                       <td className="px-4 py-3 text-center">
                         <Cell value={feature.struxa} highlight />
                       </td>
@@ -118,10 +118,12 @@ export default function ComparePage() {
           </table>
         </div>
 
-        <p className="mt-6 font-mono text-[11px] text-neutral-600">
+        <p className="mt-4 text-[11px] text-neutral-600">
           Based on publicly available information as of August 2026.
         </p>
       </div>
+
+      <CtaSection />
     </div>
   );
 }

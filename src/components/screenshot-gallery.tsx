@@ -58,14 +58,14 @@ export function ScreenshotGallery() {
           />
         ))}
         <span className="absolute inset-0 flex items-center justify-center bg-neutral-950/0 opacity-0 transition-all group-hover:bg-neutral-950/40 group-hover:opacity-100">
-          <span className="border border-neutral-700 bg-neutral-950/80 px-3 py-1.5 font-mono text-xs text-neutral-200">
+          <span className="border border-neutral-700 bg-neutral-950/80 px-3 py-1.5 text-xs text-neutral-200">
             Enlarge
           </span>
         </span>
       </button>
 
       <div className="flex items-center justify-between px-4 py-2.5">
-        <span className="font-mono text-xs text-neutral-400">{SHOTS[active]!.label}</span>
+        <span className="text-xs text-neutral-400">{SHOTS[active]!.label}</span>
         <div className="flex gap-1.5">
           {SHOTS.map((shot, i) => (
             <button
@@ -90,7 +90,7 @@ export function ScreenshotGallery() {
             type="button"
             onClick={() => setLightbox(false)}
             aria-label="Close"
-            className="absolute right-6 top-6 border border-neutral-700 bg-neutral-950/80 px-3 py-1.5 font-mono text-xs text-neutral-300 hover:bg-neutral-900"
+            className="absolute right-6 top-6 border border-neutral-700 bg-neutral-950/80 px-3 py-1.5 text-xs text-neutral-300 hover:bg-neutral-900"
           >
             Close ✕
           </button>

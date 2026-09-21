@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { CHANGELOG, formatChangelogDate } from '../data/changelog';
 
 const PAGE_SIZE = 3;
@@ -30,11 +31,11 @@ export function ChangelogTimeline() {
               <div className="absolute -left-[5px] top-1.5 h-[9px] w-[9px] rounded-full border-2 border-blue-500 bg-neutral-950" />
 
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs text-neutral-500">{formatChangelogDate(entry.date)}</span>
-                <span className="rounded-md border border-neutral-800 px-2 py-0.5 font-mono text-[11px] text-neutral-300">
+                <span className="text-xs text-neutral-500">{formatChangelogDate(entry.date)}</span>
+                <span className="rounded-md border border-neutral-800 px-2 py-0.5 text-[11px] text-neutral-300">
                   {entry.version}
                 </span>
-                <span className={`rounded-md border px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide ${type.className}`}>
+                <span className={`rounded-md border px-2 py-0.5 text-[11px] uppercase tracking-wide ${type.className}`}>
                   {type.label}
                 </span>
               </div>
@@ -48,17 +49,15 @@ export function ChangelogTimeline() {
                 <h2 className="font-display text-2xl font-semibold text-neutral-50 transition-colors group-hover:text-blue-400 md:text-3xl">
                   {entry.title}
                 </h2>
-                <span className="text-neutral-600 transition-colors group-hover:text-blue-400">↗</span>
+                <ArrowUpRight className="size-4 text-neutral-600 transition-colors group-hover:text-blue-400" />
               </a>
 
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-400">{entry.description}</p>
 
               <ul className="mt-5 flex max-w-2xl flex-col gap-2">
                 {entry.changes.map((change) => (
-                  <li key={change} className="flex items-start gap-2.5 font-mono text-[11px] text-neutral-400">
-                    <svg viewBox="0 0 12 12" className="mt-0.5 h-3 w-3 shrink-0 text-blue-500">
-                      <path d="M2 6l3 3 5-6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                    </svg>
+                  <li key={change} className="flex items-start gap-2.5 text-[11px] text-neutral-400">
+                    <Check className="mt-px size-3 shrink-0 text-blue-500" />
                     <span className="leading-relaxed">{change}</span>
                   </li>
                 ))}
@@ -68,7 +67,7 @@ export function ChangelogTimeline() {
                 {entry.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md border border-neutral-800 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-neutral-500"
+                    className="rounded-md border border-neutral-800 px-2 py-0.5 text-[10px] uppercase tracking-wide text-neutral-500"
                   >
                     {tag}
                   </span>
@@ -85,7 +84,7 @@ export function ChangelogTimeline() {
             type="button"
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}
-            className="font-mono text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
+            className="text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
           >
             ← Newer
           </button>
@@ -108,7 +107,7 @@ export function ChangelogTimeline() {
             type="button"
             onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
             disabled={page === pageCount - 1}
-            className="font-mono text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
+            className="text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
           >
             Older →
           </button>

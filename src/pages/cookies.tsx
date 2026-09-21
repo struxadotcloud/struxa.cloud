@@ -5,14 +5,14 @@ import { COOKIES } from '../data/legal-content';
 
 export default function CookiesPage() {
   return (
-    <div>
+    <div className="mx-auto w-full max-w-6xl">
       <Seo
         title="Cookie Policy — struxa"
         description="How struxa uses cookies and similar technologies."
         path="/cookies"
       />
 
-      <div className="px-6 pt-20 md:px-16">
+      <div className="px-6 pt-16">
         <SectionHeader
           label="Legal"
           heading="Cookie Policy"

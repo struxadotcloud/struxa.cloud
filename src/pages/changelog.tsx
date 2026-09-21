@@ -1,17 +1,18 @@
 import { ChangelogTimeline } from '../components/changelog-timeline';
+import { CtaSection } from '../components/cta-section';
 import { SectionHeader } from '../components/section';
 import { Seo } from '../components/seo';
 
 export default function ChangelogPage() {
   return (
-    <div>
+    <div className="mx-auto w-full max-w-6xl">
       <Seo
         title="Changelog — struxa"
         description="Every release, every fix, every improvement to struxa — documented here."
         path="/changelog"
       />
 
-      <div className="px-6 pb-6 pt-20 md:px-16">
+      <div className="px-6 pb-6 pt-16">
         <SectionHeader
           label="What's new"
           heading="Changelog"
@@ -19,9 +20,11 @@ export default function ChangelogPage() {
         />
       </div>
 
-      <div className="border-t border-neutral-800 px-6 py-14 md:px-16">
+      <div className="px-6 py-10">
         <ChangelogTimeline />
       </div>
+
+      <CtaSection />
     </div>
   );
 }
