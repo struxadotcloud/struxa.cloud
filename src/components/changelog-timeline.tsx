@@ -84,22 +84,26 @@ export function ChangelogTimeline() {
             type="button"
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}
-            className="text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
+            className="px-1 py-2 text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
           >
             ← Newer
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5">
             {Array.from({ length: pageCount }).map((_, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setPage(i)}
                 aria-label={`Page ${i + 1}`}
-                className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                  i === page ? 'bg-blue-500' : 'bg-neutral-700 hover:bg-neutral-600'
-                }`}
-              />
+                className="p-2"
+              >
+                <span
+                  className={`block h-1.5 w-1.5 rounded-full transition-colors ${
+                    i === page ? 'bg-blue-500' : 'bg-neutral-700 hover:bg-neutral-600'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -107,7 +111,7 @@ export function ChangelogTimeline() {
             type="button"
             onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
             disabled={page === pageCount - 1}
-            className="text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
+            className="px-1 py-2 text-xs uppercase tracking-wide text-neutral-400 transition-colors hover:text-neutral-100 disabled:pointer-events-none disabled:opacity-30"
           >
             Older →
           </button>

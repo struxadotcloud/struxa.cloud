@@ -16,8 +16,8 @@ export function InstallCommand() {
   };
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-950/60 py-2 pl-4 pr-2 shadow-sm shadow-black/30">
-      <code className="min-w-0 overflow-x-auto whitespace-nowrap text-sm text-neutral-300">
+    <div className="flex max-w-full items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/60 py-2 pl-3 pr-2 shadow-sm shadow-black/30 sm:gap-3 sm:pl-4">
+      <code className="min-w-0 overflow-x-auto whitespace-nowrap text-xs text-neutral-300 sm:text-sm">
         <span className="text-blue-400">$</span> {COMMAND}
       </code>
       <Button

@@ -4,14 +4,21 @@ import { useEffect, useState } from 'react';
 import { ComingSoonButton } from './coming-soon-button';
 import { NavMenus } from './nav-menus';
 
-// At rest the row is transparent and sits inside the hero card (the hero pulls
-// itself up under the header with a matching negative margin) — mt-2 keeps the
-// row clear of the card's top border. Past ~16px of scroll it morphs into a
-// detached floating pill that also narrows to content width. The header's top
-// padding stays constant in both states so the pill floats with a gap below
-// the viewport edge. Total top-state height is env(safe-area-inset-top) +
-// 4.5rem (1rem gap + 0.5rem offset + 3rem row) — keep hero.tsx's negative
-// margin in sync.
+// Proportions mirror usenotra.com: a slim row (44px mobile / 40px desktop)
+// floats with generous air above it (40px desktop at rest), then morphs on
+// scroll into a 56px pill 14px from the top (max-w-5xl). The weight comes
+// from spacing and air, not a thick bar: 16px nav links, 16px Log in, a 32px
+// rounded CTA. The nav is centered with a 1fr-auto-1fr grid (never a
+// transform, which would become the containing block for the fixed panels).
+//
+// Header totals (keep in sync with hero.tsx and nav-menus.tsx):
+//   rest:      safe-area + 0.75rem pad + 2.75rem row = safe-area + 3.5rem (mobile)
+//              safe-area + 2.5rem  pad + 2.5rem row  = safe-area + 5rem   (lg)
+//   scrolled:  lg -> safe-area + 0.875rem pad + 3.5rem row
+//
+// The scrolled blur lives on an absolute layer rather than the row: a
+// backdrop-filter on the row would become the containing block for the mobile
+// sheet's `position: fixed`, breaking its viewport anchoring.
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,37 +30,63 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-[calc(env(safe-area-inset-top)+1rem)] sm:px-4">
+    <header
+      className={`sticky top-0 z-50 px-3 pt-[calc(env(safe-area-inset-top)+0.75rem)] transition-all duration-300 ease-out motion-reduce:transition-none sm:px-4 ${
+        // mutually exclusive lg paddings: tailwind-merge cannot dedupe two
+        // differing pt-[calc(...)] values, and the cascade would keep the rest
+        // state's 2.5rem forever.
+        scrolled
+          ? 'lg:pt-[calc(env(safe-area-inset-top)+0.875rem)]'
+          : 'lg:pt-[calc(env(safe-area-inset-top)+2.5rem)]'
+      }`}
+    >
       <div
-        className={`mx-auto flex w-full items-center justify-between gap-4 rounded-full border transition-all duration-300 ease-out motion-reduce:transition-none ${
+        className={`relative mx-auto flex h-11 w-full items-center justify-between gap-2 rounded-2xl border transition-all duration-300 ease-out motion-reduce:transition-none sm:gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] ${
           scrolled
-            ? 'mt-0 h-11 max-w-6xl border-white/10 bg-neutral-950/80 px-8 shadow-lg shadow-black/30 backdrop-blur-md'
-            : 'mt-2 h-12 max-w-[1840px] border-transparent bg-transparent px-6'
+            ? 'max-w-5xl border-white/10 px-3 shadow-lg shadow-black/40 sm:px-5 lg:h-14'
+            : 'max-w-7xl border-transparent px-2 sm:px-3 lg:h-10'
         }`}
       >
-        <a href="/" className="shrink-0">
-          <img
-            src="/images/brand/wordmark.png"
-            alt="struxa"
-            width="448"
-            height="90"
-            className={`h-auto transition-all duration-300 ease-out motion-reduce:transition-none ${
-              scrolled ? 'w-20' : 'w-24'
-            }`}
-          />
+        <div
+          className={`pointer-events-none absolute inset-0 rounded-2xl transition-colors duration-300 ease-out motion-reduce:transition-none ${
+            scrolled ? 'bg-neutral-950/85 backdrop-blur-md' : 'bg-transparent'
+          }`}
+          aria-hidden
+        />
+
+        <a
+          href="/"
+          aria-label="struxa home"
+          className="group relative flex flex-1 items-center lg:justify-self-start"
+        >
+          <span className="flex items-center gap-2.5 transition-transform duration-150 ease-out group-active:scale-[0.97] motion-reduce:transition-none">
+            <img
+              src="/images/brand/favicon.png"
+              alt=""
+              aria-hidden
+              width={64}
+              height={64}
+              className="size-8 shrink-0 sm:size-9"
+            />
+            <img
+              src="/images/brand/wordmark.png"
+              alt="struxa"
+              width="448"
+              height="90"
+              className="h-4 w-auto sm:h-5"
+            />
+          </span>
         </a>
 
         <NavMenus />
 
-        <div className="flex items-center gap-4">
-          <div
-            className={`hidden overflow-hidden whitespace-nowrap transition-all duration-300 ease-out motion-reduce:transition-none sm:block ${
-              scrolled ? 'max-w-0 opacity-0' : 'max-w-24 opacity-100'
-            }`}
-          >
-            <ComingSoonButton variant="text">Log in</ComingSoonButton>
+        <div className="relative flex shrink-0 items-center gap-2 sm:gap-3 lg:justify-self-end">
+          <div className="hidden sm:block">
+            <ComingSoonButton variant="text" className="sm:text-base">
+              Log in
+            </ComingSoonButton>
           </div>
-          <ComingSoonButton className="border-white bg-white text-neutral-950 hover:bg-neutral-200 data-pressed:bg-neutral-300">
+          <ComingSoonButton className="rounded-full border-white bg-white px-4 text-neutral-950 shadow-none hover:bg-neutral-200 data-pressed:bg-neutral-300">
             Get Started
           </ComingSoonButton>
         </div>

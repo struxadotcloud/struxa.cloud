@@ -2,6 +2,7 @@
 
 import { type ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { cn } from '../lib/utils';
 import { Button, type ButtonProps } from './ui/button';
 
 type Variant = 'primary' | 'secondary' | 'text' | 'row';
@@ -46,7 +47,7 @@ export function ComingSoonButton({
       <Button
         variant={cossVariant}
         size={size}
-        className={variant === 'text' ? VARIANT_CLASS.text : className}
+        className={variant === 'text' ? cn(VARIANT_CLASS.text, className) : className}
         onClick={() => setOpen(true)}
       >
         {children}

@@ -4,11 +4,12 @@ import { InstallCommand } from './install-command';
 import { Button } from './ui/button';
 
 // The card is pulled up under the transparent navbar (negative margin equals
-// the header's total height) so the nav reads as sitting inside the card.
+// the header's rest height: safe-area + 3.5rem mobile, safe-area + 5rem lg) so
+// the nav reads as sitting inside the card, 16px below its top edge on lg.
 // Keep the margin in sync with the header geometry in navbar.tsx.
 export function Hero() {
   return (
-    <section className="relative -mt-[calc(env(safe-area-inset-top)+4.5rem)] px-3 pb-6 pt-3 sm:px-4 sm:pb-8 sm:pt-4">
+    <section className="relative -mt-[calc(env(safe-area-inset-top)+3.5rem)] px-3 pb-6 pt-2 sm:px-4 sm:pb-8 lg:-mt-[calc(env(safe-area-inset-top)+5rem)] lg:pt-6">
       <div className="relative mx-auto max-w-[1840px] overflow-hidden rounded-[1.75rem] border border-white/15 bg-[radial-gradient(120%_90%_at_50%_0%,#16337a_0%,#12244d_45%,#0e1c3c_100%)] pb-0 pt-24 text-center">
         <DitherHeroBackground />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_30%,rgb(96_165_250/0.14),transparent_70%)]" />

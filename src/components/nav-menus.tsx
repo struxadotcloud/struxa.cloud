@@ -7,6 +7,7 @@ import {
   ChevronDown,
   Menu as MenuIcon,
 } from 'lucide-react';
+import { ComingSoonButton } from './coming-soon-button';
 
 type SectionKey = 'product' | 'resources';
 type PanelKey = SectionKey | 'all';
@@ -71,12 +72,12 @@ const SECTIONS: Record<SectionKey, { label: string; items: NavItem[] }> = {
 };
 
 const triggerClass =
-  'flex cursor-pointer items-center gap-1 rounded-sm text-xs uppercase tracking-widest text-neutral-300 hover:text-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400';
+  'flex cursor-pointer items-center gap-1 rounded-md font-sans text-base font-medium leading-5 text-neutral-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400';
 
-// One shared panel for both sections: opening Product then hovering Resources
-// swaps the grid inside the panel (crossfade) instead of popping a second
-// dropdown. Hover intent is desktop-only; click/Escape/click-outside work
-// everywhere.
+// Desktop: one shared panel for both sections — opening Product then hovering
+// Resources swaps the grid inside the panel (crossfade) instead of popping a
+// second dropdown. Mobile: a full-width sheet anchored below the navbar.
+// Hover intent is desktop-only; click/Escape/click-outside work everywhere.
 const CLOSE_DELAY = 120;
 const EXIT_MS = 150;
 
@@ -145,7 +146,7 @@ export function NavMenus() {
   return (
     <div
       ref={rootRef}
-      className="relative flex items-center gap-7"
+      className="relative flex shrink-0 items-center gap-8"
       onMouseEnter={cancelClose}
       onMouseLeave={scheduleClose}
     >
@@ -153,8 +154,8 @@ export function NavMenus() {
         <button
           key={key}
           type="button"
-          className={`${triggerClass} hidden lg:flex ${
-            isOpen(key) ? 'text-neutral-100' : ''
+          className={`${triggerClass} hidden h-8 lg:flex ${
+            isOpen(key) ? 'text-white' : ''
           }`}
           aria-expanded={isOpen(key)}
           aria-haspopup="true"
@@ -172,18 +173,20 @@ export function NavMenus() {
 
       <button
         type="button"
-        className={`${triggerClass} px-2 py-2 lg:hidden`}
+        className={`${triggerClass} size-9 justify-center rounded-md lg:hidden ${
+          isOpen('all') ? 'text-white' : ''
+        }`}
         aria-expanded={isOpen('all')}
         aria-haspopup="true"
         aria-label="Open menu"
         onClick={() => (panel === 'all' ? close() : open('all'))}
       >
-        <MenuIcon className="size-4" />
+        <MenuIcon className="size-5" />
       </button>
 
-      {panel ? (
+      {panel && panel !== 'all' ? (
         <div
-          className={`nav-menu-panel absolute inset-x-0 top-full mx-auto mt-3 max-h-[min(34rem,calc(100dvh-5rem))] w-fit max-w-[calc(100vw-1.5rem)] overflow-y-auto rounded-2xl border border-white/10 bg-neutral-950/90 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl ${
+          className={`nav-menu-panel fixed inset-x-0 top-[calc(env(safe-area-inset-top)+5rem)] z-50 mx-auto mt-3 hidden max-h-[calc(100dvh-6rem)] w-fit max-w-[calc(100vw-1.5rem)] overflow-y-auto rounded-2xl border border-white/10 bg-neutral-950/90 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl lg:block ${
             closing ? 'nav-menu-panel-out' : ''
           }`}
           role="group"
@@ -191,14 +194,33 @@ export function NavMenus() {
           onClick={close}
         >
           <div key={panel} className="nav-menu-section">
-            {panel === 'all' ? (
-              <div className="flex w-72 max-w-full flex-col">
-                <MenuGrid section="product" labeled cols={1} />
-                <MenuGrid section="resources" labeled cols={1} />
-              </div>
-            ) : (
-              <MenuGrid section={panel} cols={2} />
-            )}
+            <MenuGrid section={panel} cols={2} />
+          </div>
+        </div>
+      ) : null}
+
+      {panel === 'all' ? (
+        <div
+          className={`nav-menu-panel fixed inset-x-0 top-[calc(env(safe-area-inset-top)+3.5rem)] z-50 max-h-[calc(100dvh-3.5rem-env(safe-area-inset-top))] overflow-y-auto border-b border-white/10 bg-neutral-950/95 pb-[env(safe-area-inset-bottom)] shadow-2xl shadow-black/50 backdrop-blur-xl lg:hidden ${
+            closing ? 'nav-menu-panel-out' : ''
+          }`}
+          role="group"
+          aria-label="Site menu"
+          onClick={close}
+        >
+          <div key={panel} className="nav-menu-section p-4">
+            <MenuGrid section="product" labeled cols={1} />
+            <MenuGrid section="resources" labeled cols={1} />
+
+            <div className="mt-3 border-t border-white/10 pt-3 sm:hidden">
+              <ComingSoonButton
+                variant="row"
+                className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-sm text-neutral-300 hover:bg-white/5"
+              >
+                Log in
+                <ArrowRight className="size-3.5 text-neutral-600" />
+              </ComingSoonButton>
+            </div>
           </div>
         </div>
       ) : null}

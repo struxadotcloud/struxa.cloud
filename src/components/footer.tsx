@@ -31,7 +31,7 @@ const columns = [
 export const Footer = () => {
   return (
     <footer className="relative overflow-hidden pt-12">
-      <div className="mx-auto w-full max-w-6xl px-6">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr]">
           <div>
             <a href="/" aria-label="struxa home">
@@ -42,7 +42,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {columns.map((col) => (
               <div key={col.title}>
                 <p className="text-xs uppercase tracking-widest text-neutral-500">
@@ -71,8 +71,9 @@ export const Footer = () => {
       </div>
 
       {/* brand lockup as a dim, near-full-width backdrop; the dither fades in
-          from around the footer's vertical middle down to the page bottom */}
-      <DitherHeroBackground className="absolute inset-x-0 bottom-0 h-[32rem] overflow-hidden [mask-image:linear-gradient(to_top,black_45%,transparent_95%)]" />
+          from around the footer's vertical middle down to the page bottom.
+          pointer-events-none so the effect never swallows link clicks. */}
+      <DitherHeroBackground className="pointer-events-none absolute inset-x-0 bottom-0 h-[32rem] overflow-hidden [mask-image:linear-gradient(to_top,black_45%,transparent_95%)]" />
       <div className="relative z-10 mt-16 px-6 sm:px-10">
         <img
           src="/images/brand/long-whiteblue.png"
