@@ -102,7 +102,7 @@ function BentoCard({
   return (
     <div
       ref={ref}
-      className={`flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900/30 shadow-[inset_0_1px_0_rgb(255_255_255/0.03)] ${className}`}
+      className={`flex min-w-0 flex-col rounded-2xl border border-neutral-800 bg-neutral-900/30 shadow-[inset_0_1px_0_rgb(255_255_255/0.03)] ${className}`}
     >
       {children}
     </div>
@@ -261,7 +261,7 @@ function BackupDestinations({ show }: { show: boolean }) {
         <TableHeader>
           <TableRow className="hover:bg-transparent">
             <TableHead>Destination</TableHead>
-            <TableHead className="text-right">Last backup</TableHead>
+            <TableHead className="hidden text-right sm:table-cell">Last backup</TableHead>
             <TableHead className="text-right">Size</TableHead>
             <TableHead className="w-28 text-right">Status</TableHead>
           </TableRow>
@@ -282,7 +282,7 @@ function BackupDestinations({ show }: { show: boolean }) {
                   {row.tag}
                 </Badge>
               </TableCell>
-              <TableCell className="text-right font-mono text-xs text-muted-foreground">
+              <TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">
                 {row.running ? 'in progress' : row.last}
               </TableCell>
               <TableCell className="text-right font-mono text-xs text-muted-foreground">
@@ -306,7 +306,7 @@ function BackupDestinations({ show }: { show: boolean }) {
                     <button
                       type="button"
                       onClick={retry}
-                      className="inline-flex cursor-pointer items-center gap-1 rounded px-1 font-mono text-[11px] text-amber-400/90 transition-colors hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 motion-reduce:transition-none"
+                      className="inline-flex min-h-6 cursor-pointer items-center gap-1 rounded px-1 font-mono text-[11px] text-amber-400/90 transition-colors hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 motion-reduce:transition-none"
                       aria-label="Retry failed Proxmox backup"
                     >
                       <CircleAlert className="size-3.5" />
@@ -354,7 +354,7 @@ function FileExplorer({ show }: { show: boolean }) {
                 <span className="text-neutral-400">mc-survival</span>
               </span>
             </TableHead>
-            <TableHead className="text-right">Modified</TableHead>
+            <TableHead className="hidden text-right sm:table-cell">Modified</TableHead>
             <TableHead className="text-right">Size</TableHead>
           </TableRow>
         </TableHeader>
@@ -385,7 +385,7 @@ function FileExplorer({ show }: { show: boolean }) {
                   </span>
                 </span>
               </TableCell>
-              <TableCell className="text-right font-mono text-xs text-muted-foreground">
+              <TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">
                 {file.modified}
               </TableCell>
               <TableCell className="text-right font-mono text-xs text-muted-foreground">

@@ -52,7 +52,7 @@ export function SponsorsSection() {
 
         <a
           href="mailto:admin@disasterlimited.tech"
-          className="mt-8 inline-flex items-center gap-1.5 text-sm text-blue-400 transition-colors hover:text-blue-300 motion-reduce:transition-none"
+          className="mt-8 inline-flex items-center gap-1.5 py-0.5 text-sm text-blue-400 transition-colors hover:text-blue-300 motion-reduce:transition-none"
         >
           <Heart className="size-3.5" />
           Back struxa as a sponsor

@@ -75,17 +75,17 @@ export default function ComparePage() {
 
       <div className="px-6 py-10">
         <div className="overflow-x-auto rounded-2xl border border-neutral-800 bg-neutral-900/30 shadow-[inset_0_1px_0_rgb(255_255_255/0.03)]">
-          <table className="w-full min-w-[36rem] border-collapse text-xs">
+          <table className="w-full border-collapse text-[10px] sm:min-w-[36rem] sm:text-xs">
             <thead>
               <tr className="border-b border-neutral-800/70">
-                <th className="px-5 py-3.5 text-left font-normal uppercase tracking-wide text-neutral-500">
+                <th className="px-3 py-3 text-left font-normal uppercase tracking-wide text-neutral-500 sm:px-5 sm:py-3.5">
                   Feature
                 </th>
-                <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-blue-400">struxa</th>
-                <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-neutral-500">
+                <th className="px-2 py-3 text-center font-normal uppercase tracking-wide text-blue-400 sm:px-4 sm:py-3.5">struxa</th>
+                <th className="px-2 py-3 text-center font-normal uppercase tracking-wide text-neutral-500 sm:px-4 sm:py-3.5">
                   Pterodactyl
                 </th>
-                <th className="px-4 py-3.5 text-center font-normal uppercase tracking-wide text-neutral-500">
+                <th className="px-2 py-3 text-center font-normal uppercase tracking-wide text-neutral-500 sm:px-4 sm:py-3.5">
                   Pelican
                 </th>
               </tr>
@@ -94,20 +94,20 @@ export default function ComparePage() {
               {CATEGORIES.map((category) => (
                 <Fragment key={category.name}>
                   <tr className="border-b border-neutral-800/70 bg-white/[0.02]">
-                    <td colSpan={4} className="px-5 py-2.5 text-neutral-300">
+                    <td colSpan={4} className="px-3 py-2.5 text-neutral-300 sm:px-5">
                       {category.name}
                     </td>
                   </tr>
                   {category.features.map((feature) => (
                     <tr key={feature.name} className="border-b border-neutral-800/50 last:border-b-0">
-                      <td className="px-5 py-3 text-neutral-300">{feature.name}</td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-3 py-3 text-neutral-300 sm:px-5">{feature.name}</td>
+                      <td className="px-2 py-3 text-center sm:px-4">
                         <Cell value={feature.struxa} highlight />
                       </td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-2 py-3 text-center sm:px-4">
                         <Cell value={feature.pterodactyl} />
                       </td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-2 py-3 text-center sm:px-4">
                         <Cell value={feature.pelican} />
                       </td>
                     </tr>

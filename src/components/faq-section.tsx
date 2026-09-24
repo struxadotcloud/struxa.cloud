@@ -46,7 +46,7 @@ export function FaqSection() {
           </p>
           <a
             href="https://discord.struxa.cloud"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm text-blue-400 transition-colors hover:text-blue-300 motion-reduce:transition-none"
+            className="mt-6 inline-flex items-center gap-1.5 py-0.5 text-sm text-blue-400 transition-colors hover:text-blue-300 motion-reduce:transition-none"
           >
             Still stuck? Ask on Discord
             <ArrowRight className="size-3.5" />

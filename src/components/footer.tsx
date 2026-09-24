@@ -34,7 +34,7 @@ export const Footer = () => {
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr]">
           <div>
-            <a href="/" aria-label="struxa home">
+            <a href="/" aria-label="struxa home" className="inline-block py-0.5">
               <img src="/images/brand/wordmark.png" alt="struxa" width="448" height="90" className="h-auto w-28" />
             </a>
             <p className="mt-3 max-w-xs text-sm text-neutral-500">
@@ -53,7 +53,7 @@ export const Footer = () => {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-sm text-neutral-400 hover:text-neutral-100"
+                        className="inline-block py-1 text-sm text-neutral-400 hover:text-neutral-100"
                       >
                         {link.label}
                       </a>

@@ -96,7 +96,7 @@ export function ChangelogTimeline() {
                 type="button"
                 onClick={() => setPage(i)}
                 aria-label={`Page ${i + 1}`}
-                className="p-2"
+                className="p-2.5"
               >
                 <span
                   className={`block h-1.5 w-1.5 rounded-full transition-colors ${

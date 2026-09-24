@@ -41,7 +41,7 @@ export function Navbar() {
       }`}
     >
       <div
-        className={`relative mx-auto flex h-11 w-full items-center justify-between gap-2 rounded-2xl border transition-all duration-300 ease-out motion-reduce:transition-none sm:gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] ${
+        className={`relative mx-auto flex h-11 w-full items-center gap-2 rounded-2xl border transition-all duration-300 ease-out motion-reduce:transition-none sm:gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] ${
           scrolled
             ? 'max-w-5xl border-white/10 px-3 shadow-lg shadow-black/40 sm:px-5 lg:h-14'
             : 'max-w-7xl border-transparent px-2 sm:px-3 lg:h-10'
@@ -57,7 +57,7 @@ export function Navbar() {
         <a
           href="/"
           aria-label="struxa home"
-          className="group relative flex flex-1 items-center lg:justify-self-start"
+          className="group relative flex items-center lg:justify-self-start"
         >
           <span className="flex items-center gap-2.5 transition-transform duration-150 ease-out group-active:scale-[0.97] motion-reduce:transition-none">
             <img
@@ -80,7 +80,7 @@ export function Navbar() {
 
         <NavMenus />
 
-        <div className="relative flex shrink-0 items-center gap-2 sm:gap-3 lg:justify-self-end">
+        <div className="relative flex shrink-0 items-center gap-1.5 sm:gap-3 lg:justify-self-end">
           <div className="hidden sm:block">
             <ComingSoonButton variant="text" className="sm:text-base">
               Log in

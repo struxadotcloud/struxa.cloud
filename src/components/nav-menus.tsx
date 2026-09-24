@@ -146,7 +146,7 @@ export function NavMenus() {
   return (
     <div
       ref={rootRef}
-      className="relative flex shrink-0 items-center gap-8"
+      className="relative ml-auto flex shrink-0 items-center gap-8 lg:ml-0 max-lg:gap-0"
       onMouseEnter={cancelClose}
       onMouseLeave={scheduleClose}
     >
@@ -173,7 +173,7 @@ export function NavMenus() {
 
       <button
         type="button"
-        className={`${triggerClass} size-9 justify-center rounded-md lg:hidden ${
+        className={`${triggerClass} size-9 justify-center rounded-lg border border-white/10 bg-white/[0.04] lg:hidden ${
           isOpen('all') ? 'text-white' : ''
         }`}
         aria-expanded={isOpen('all')}
@@ -208,17 +208,17 @@ export function NavMenus() {
           aria-label="Site menu"
           onClick={close}
         >
-          <div key={panel} className="nav-menu-section p-4">
+          <div key={panel} className="nav-menu-section px-3 py-4">
             <MenuGrid section="product" labeled cols={1} />
             <MenuGrid section="resources" labeled cols={1} />
 
-            <div className="mt-3 border-t border-white/10 pt-3 sm:hidden">
+            <div className="mt-4 border-t border-white/10 pt-3">
               <ComingSoonButton
                 variant="row"
-                className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-sm text-neutral-300 hover:bg-white/5"
+                className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-sm text-neutral-300 hover:bg-white/5"
               >
                 Log in
-                <ArrowRight className="size-3.5 text-neutral-600" />
+                <ArrowRight className="size-4 text-neutral-600" />
               </ComingSoonButton>
             </div>
           </div>
@@ -242,13 +242,13 @@ function MenuGrid({
   return (
     <div>
       {labeled ? (
-        <p className="px-3 pb-1 pt-2 text-[10px] uppercase tracking-widest text-neutral-600">
+        <p className="px-3 pb-2 pt-3 text-[11px] font-medium uppercase tracking-widest text-neutral-500">
           {label}
         </p>
       ) : null}
 
       <div
-        className={`grid gap-1 ${cols === 2 ? 'w-[30rem] grid-cols-2' : 'grid-cols-1'}`}
+        className={`grid gap-0.5 ${cols === 2 ? 'w-[30rem] grid-cols-2' : 'grid-cols-1'}`}
       >
         {items.map((item, i) => {
           const external = item.href.startsWith('http');
@@ -258,14 +258,14 @@ function MenuGrid({
             <a
               key={item.label}
               href={item.href}
-              className="nav-menu-item group flex items-center justify-between gap-3 rounded-xl p-3 pr-4 transition-colors hover:bg-white/5"
+              className="nav-menu-item group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-white/5"
               style={{ '--menu-i': i } as CSSProperties}
             >
               <span className="min-w-0">
                 <span className="block text-sm font-medium text-neutral-100">
                   {item.label}
                 </span>
-                <span className="mt-0.5 block text-xs leading-relaxed text-neutral-500">
+                <span className="mt-0.5 block text-xs text-neutral-500">
                   {item.description}
                 </span>
               </span>
